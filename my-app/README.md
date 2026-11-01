@@ -1,16 +1,22 @@
-# React + Vite
+# Tier Ranking App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A static React shell for a tier-list app, built with Vite, Tailwind CSS, and React Router.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```sh
+npm install
+npm run dev
+```
 
-## React Compiler
+Run `npm run build` to create a production build and `npm run lint` to check the source.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Routes
 
-## Expanding the ESLint configuration
+- `/` — landing page
+- `/lists` — sample lists
+- `/lists/demo` — sample list editor
+- `/s/demo` — read-only shared list
+- Any other path — not-found page
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The current pages use hardcoded sample data. Buttons and inputs are visual placeholders.

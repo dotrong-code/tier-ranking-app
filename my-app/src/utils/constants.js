@@ -1,10 +1,12 @@
 export const DEFAULT_TIERS = [
-  { id: 's', name: 'S', color: '#ef4444' },
-  { id: 'a', name: 'A', color: '#f97316' },
-  { id: 'b', name: 'B', color: '#eab308' },
-  { id: 'c', name: 'C', color: '#22c55e' },
-  { id: 'd', name: 'D', color: '#3b82f6' },
+  { id: 'S', name: 'S', color: '#ef4444' },
+  { id: 'A', name: 'A', color: '#f97316' },
+  { id: 'B', name: 'B', color: '#eab308' },
+  { id: 'C', name: 'C', color: '#22c55e' },
+  { id: 'D', name: 'D', color: '#3b82f6' },
 ]
+
+export const POOL_ID = 'pool'
 
 export const LIMITS = {
   listTitle: 60,

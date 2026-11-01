@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 import Header from '../components/layout/Header.jsx'
-import TierRow from '../components/tierlist/TierRow.jsx'
-import UnrankedPool from '../components/tierlist/UnrankedPool.jsx'
-import { DEFAULT_TIERS } from '../utils/constants.js'
-import { MOCK_POOL_ITEMS, MOCK_TIER_ITEMS } from '../utils/mockData.js'
+import TierList from '../components/tierlist/TierList.jsx'
+import useTierList from '../hooks/useTierList.js'
 
 function ListEditorPage() {
+  const { tiers, itemsById, containers, setContainers } = useTierList()
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       <Header>
@@ -24,19 +24,12 @@ function ListEditorPage() {
           &larr; Back to lists
         </Link>
         <h1 className="mb-6 text-2xl font-bold">Favorite Games</h1>
-        <div className="mb-6">
-          <UnrankedPool items={MOCK_POOL_ITEMS} />
-        </div>
-        <div className="flex flex-col">
-          {DEFAULT_TIERS.map((tier) => (
-            <TierRow
-              key={tier.id}
-              name={tier.name}
-              color={tier.color}
-              items={MOCK_TIER_ITEMS[tier.name]}
-            />
-          ))}
-        </div>
+        <TierList
+          tiers={tiers}
+          itemsById={itemsById}
+          containers={containers}
+          setContainers={setContainers}
+        />
       </main>
     </div>
   )

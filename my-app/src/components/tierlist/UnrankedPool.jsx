@@ -1,4 +1,6 @@
-import ItemChip from './ItemChip.jsx'
+import DroppableArea from './DroppableArea.jsx'
+import SortableItem from './SortableItem.jsx'
+import { POOL_ID } from '../../utils/constants.js'
 
 function UnrankedPool({ items = [] }) {
   return (
@@ -17,17 +19,19 @@ function UnrankedPool({ items = [] }) {
           Add
         </button>
       </div>
-      {items.length > 0 ? (
-        <div className="flex flex-wrap gap-2">
-          {items.map((item) => (
-            <ItemChip key={item.id} name={item.name} />
-          ))}
-        </div>
-      ) : (
-        <p className="text-sm text-gray-500">
-          No items yet. Add an item to get started.
-        </p>
-      )}
+      <DroppableArea
+        containerId={POOL_ID}
+        itemIds={items.map((item) => item.id)}
+        className="flex min-h-20 flex-wrap items-center gap-2"
+      >
+        {items.length > 0 ? (
+          items.map((item) => <SortableItem key={item.id} item={item} />)
+        ) : (
+          <p className="text-sm text-gray-500">
+            No items yet. Add an item to get started.
+          </p>
+        )}
+      </DroppableArea>
     </section>
   )
 }
